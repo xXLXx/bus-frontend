@@ -24,7 +24,7 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "deploy": "env-cmd -f ./.env.development yarn build && gh-pages -d build",
+    "deploy:dev": "env-cmd -f ./.env.development yarn build && gh-pages -d build",
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
