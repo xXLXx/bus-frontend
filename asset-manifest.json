@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/bus-frontend/static/css/main.7639ceee.chunk.css",
+    "main.js": "/bus-frontend/static/js/main.2a3b66cf.chunk.js",
+    "main.js.map": "/bus-frontend/static/js/main.2a3b66cf.chunk.js.map",
+    "runtime-main.js": "/bus-frontend/static/js/runtime-main.87e038ae.js",
+    "runtime-main.js.map": "/bus-frontend/static/js/runtime-main.87e038ae.js.map",
+    "static/js/2.8bed6c45.chunk.js": "/bus-frontend/static/js/2.8bed6c45.chunk.js",
+    "static/js/2.8bed6c45.chunk.js.map": "/bus-frontend/static/js/2.8bed6c45.chunk.js.map",
+    "static/js/3.a67cc407.chunk.js": "/bus-frontend/static/js/3.a67cc407.chunk.js",
+    "static/js/3.a67cc407.chunk.js.map": "/bus-frontend/static/js/3.a67cc407.chunk.js.map",
+    "index.html": "/bus-frontend/index.html",
+    "static/css/main.7639ceee.chunk.css.map": "/bus-frontend/static/css/main.7639ceee.chunk.css.map",
+    "static/js/2.8bed6c45.chunk.js.LICENSE.txt": "/bus-frontend/static/js/2.8bed6c45.chunk.js.LICENSE.txt",
+    "static/media/spinner.dbdf85c2.svg": "/bus-frontend/static/media/spinner.dbdf85c2.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.87e038ae.js",
+    "static/js/2.8bed6c45.chunk.js",
+    "static/css/main.7639ceee.chunk.css",
+    "static/js/main.2a3b66cf.chunk.js"
+  ]
+}
