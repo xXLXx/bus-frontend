@@ -1,0 +1,29 @@
+@import 'assets/styles/common';
+
+.bus-stops-map-wrapper {
+  .infoBox {
+    background-color: $color-bg-light;
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: $map-popup-shadow;
+    // no other solutions to centering this. Remove it infobox is used other than for error
+    transform: translateX(-50%) translateY(-50%) !important;
+
+    .error {
+      text-align: center;
+      color: $color-error-light;
+    }
+  }
+
+  .info-window-placeholder {
+    width: 100px;
+    height: 50px;
+  }
+
+  .bus-stop-detail-wrapper {
+    > ul {
+      list-style: none;
+      padding-left: 0;
+    }
+  }
+}

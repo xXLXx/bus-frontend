@@ -1,0 +1,23 @@
+@import 'assets/styles/common';
+
+.loader-wrapper {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: $color-loading-cover;
+
+  &.fixed {
+    position: fixed;
+  }
+
+  &.absolute {
+    position: absolute;
+  }
+
+  > svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+}
