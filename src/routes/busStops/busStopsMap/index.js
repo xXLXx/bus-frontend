@@ -14,6 +14,8 @@ const BusStopsMap = () => {
   const { busStops, errorMessage, isLoading } = state.busStops;
 
   const infoWindow = useRef(null);
+  // Flag to make sure we only recenter the map once
+  const wasMapRecentered = useRef(false);
 
   const [map, setMap] = useState(null);
   const [mapDimens, setMapDimens] = useState({});
@@ -38,7 +40,9 @@ const BusStopsMap = () => {
   }, []);
 
   useEffect(() => {
-    if (map && userLocation) {
+    if (map && userLocation && !wasMapRecentered.current) {
+      wasMapRecentered.current = true;
+
       setBusStopsFilter({
         filters: { near: `${userLocation.lat},${userLocation.lng}` },
         reset: true
@@ -47,12 +51,7 @@ const BusStopsMap = () => {
 
       map.setCenter(userLocation);
     }
-  }, [userLocation, map]);
-
-  // useEffect(() => {
-  //   infoWindow?.current && infoWindow.current.close();
-  //   console.log('close');
-  // }, [isLoading]);
+  }, [userLocation, map, setBusStopsFilter, getBusStops]);
 
   const initMapDimensions = () => {
     setMapDimens({
