@@ -51,7 +51,7 @@ const fetchBusStops = async (dispatch, action, state) => {
 const fetchBusStop = async (dispatch, action, state) => {
   const { busStops, selectedBusStopIndex } = state.busStops;
   const { payload: { byId, reset } } = action;
-  const index = selectedBusStopIndex || (byId && busStops.busStops.findIndex((busStop) => busStop.id === byId));
+  const index = (byId && busStops.busStops.findIndex((busStop) => busStop.id === byId)) || selectedBusStopIndex;
 
   /**
    * Set the currently selected whenever one isn't found,
@@ -63,10 +63,12 @@ const fetchBusStop = async (dispatch, action, state) => {
       dispatch(getBusStopsSuccess([{
         id: byId
       }]));
-    }
-    dispatch(setSelectedBusStop(busStops.length - 1));
+      dispatch(setSelectedBusStop(busStops.length - 1));
 
-    return await fetchBusStop(dispatch, action, state);
+      return await fetchBusStop(dispatch, action, state);
+    } else {
+      throw new Error('No way to determine a bus stop without an id or index');
+    }
   }
 
   if (busStops[index].details === undefined || reset) {

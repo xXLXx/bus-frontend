@@ -43,7 +43,7 @@ const BusStopMarker = ({
   const onMarkerClick = useCallback(() => {
     setSelectedBusStop(busStopIndex);
     getBusStop();
-  }, []);
+  }, [busStopIndex, setSelectedBusStop, getBusStop]);
 
   useEffect(() => {
     if (selectedBusStopIndex === busStopIndex) {
@@ -58,7 +58,7 @@ const BusStopMarker = ({
         info: busStop ? getBusStopDetail() : <h3>Sorry! we cannot find that bus stop.</h3>
       });
     }
-  }, [busStop, onInfoChanged, selectedBusStopIndex]);
+  }, [busStop, onInfoChanged, selectedBusStopIndex, busStopIndex, getBusStopDetail]);
 
   return (
     <div>

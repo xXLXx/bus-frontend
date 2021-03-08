@@ -3,6 +3,7 @@ import combinedReducers from './reducers';
 import sagas from './sagas';
 import * as actionTemplates from './actions';
 import { useActions, applyMiddleware } from 'utils';
+import config from 'config';
 
 const StoreContext = createContext();
 
@@ -16,10 +17,13 @@ const StoreProvider = ({ children }) => {
   const runSagas = useCallback(async () => {
     if (sagaActions?.current && sagaActions?.current.length >= 1) {
       const action = sagaActions.current.splice(0, 1)[0];
+      if (config.store.debug) {
+        console.info(`Saga ${action.type}`);
+      }
       await Promise.all(sagas.map((saga) => saga(action, state, enhancedDispatch)));
       runSagas();
     }
-  });
+  }, [enhancedDispatch, state]);
 
   /**
    * Not the preferred way to do this.
@@ -28,7 +32,7 @@ const StoreProvider = ({ children }) => {
    */
   useEffect(() => {
     runSagas();
-  }, [state]);
+  }, [state, runSagas]);
 
   return (
     <StoreContext.Provider value={{ state, actions }}>
